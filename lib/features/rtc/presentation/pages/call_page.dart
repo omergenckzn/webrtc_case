@@ -42,16 +42,8 @@ class _CallViewState extends State<CallView> {
     setState(() {}); // ensure UI builds with initial renderers
   }
 
-  Future<bool> _endAndPop(BuildContext context) async {
-    final username = context.read<UsernameCubit>().state!;
-    _callBloc.add(CallEnded(widget.roomId, username));
-    context.router.maybePop();
-    return false;
-  }
-
   @override
   Widget build(BuildContext context) {
-    final username = context.read<UsernameCubit>().state!;
     return Scaffold(
       appBar: CustomAppBar(
         title: '${widget.roomId}',
@@ -64,7 +56,7 @@ class _CallViewState extends State<CallView> {
               onPressed: () async {
                 final share = di.getIt<ShareService>();
                 final text = 'Join my room: ${widget.roomId}\n'
-                    'Open Gpace App and enter the Room ID to join.';
+                    'Open WebRtc App and enter the Room ID to join.';
                 await share.shareText(
                   text: text,
                   subject: 'Room Invitation: ${widget.roomId}',
