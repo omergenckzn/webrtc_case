@@ -7,6 +7,7 @@ import 'package:dating_app/core/router/app_router.gr.dart';
 import 'package:dating_app/features/auth/presentation/state/username_cubit.dart';
 import 'package:dating_app/features/rtc/presentation/state/room_cubit/room_cubit.dart';
 import 'package:dating_app/locator.dart' as di;
+import 'package:dating_app/services/toast_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -38,6 +39,12 @@ class _LobbyViewState extends State<LobbyView> {
         listener: (context, state) {
           if (state is RoomReady) {
             context.router.push(CallRoute(roomId: state.room.id));
+          }
+          if (state is RoomError) {
+            ToastService.showToast(
+              context: context,
+              message: state.message,
+            );
           }
         },
         builder: (context, state) {

@@ -11,15 +11,15 @@ class RoomInitial extends RoomState {}
 class RoomLoading extends RoomState {}
 
 class RoomReady extends RoomState {
-  final Room room;
   RoomReady(this.room);
+  final Room room;
   @override
   List<Object?> get props => [room];
 }
 
 class RoomError extends RoomState {
-  final String message;
   RoomError(this.message);
+  final String message;
   @override
   List<Object?> get props => [message];
 }

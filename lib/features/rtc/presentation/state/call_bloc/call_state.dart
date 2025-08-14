@@ -2,9 +2,8 @@
 part of 'call_bloc.dart';
 
 class CallState extends Equatable {
-  const CallState.initial() : this(micOn: true, camOn: true);
-
   const CallState({required this.micOn, required this.camOn});
+  const CallState.initial() : this(micOn: true, camOn: true);
   final bool micOn;
   final bool camOn;
 

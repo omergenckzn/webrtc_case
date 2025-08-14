@@ -9,6 +9,7 @@ import 'package:dating_app/services/share_service.dart';
 import 'package:dating_app/services/web_rtc_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart';
 
 @RoutePage()
@@ -151,7 +152,7 @@ class _CallViewState extends State<CallView> {
                         state.camOn ? Icons.videocam : Icons.videocam_off,
                       ),
                     ),
-                    const SizedBox(width: 12),
+                    12.verticalSpace,
                     IconButton.filled(
                       style: IconButton.styleFrom(backgroundColor: Colors.red),
                       onPressed: () {
